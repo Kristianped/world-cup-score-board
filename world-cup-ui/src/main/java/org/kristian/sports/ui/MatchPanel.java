@@ -6,8 +6,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.kristian.sports.Match;
-import org.kristian.sports.ScoreBoard;
+import org.kristian.sports.data.match.Match;
+import org.kristian.sports.data.ScoreBoard;
 import org.kristian.sports.util.MatchNotifier;
 
 import java.awt.Dimension;
@@ -70,14 +70,19 @@ public class MatchPanel extends JPanel implements MatchNotifier {
     }
 
     @Override
-    public void notifyMatchUpdate() {
+    public void matchStarted() {
+        matchUpdated();
+    }
+
+    @Override
+    public void matchUpdated() {
         matchLabel.setText(match.toString());
         this.validate();
         this.repaint();
     }
 
     @Override
-    public void notifyMatchEnded() {
+    public void matchEnded() {
         endMatch.setEnabled(false);
         removeWatch.setEnabled(true);
         mainPanel.matchEnded();

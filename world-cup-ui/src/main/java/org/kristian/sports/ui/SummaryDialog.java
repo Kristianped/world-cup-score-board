@@ -14,8 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.kristian.sports.Result;
-import org.kristian.sports.ScoreBoard;
+import org.kristian.sports.data.match.MatchResult;
+import org.kristian.sports.data.ScoreBoard;
 
 public class SummaryDialog extends JDialog {
 
@@ -71,7 +71,7 @@ public class SummaryDialog extends JDialog {
         contentPanel.repaint();
     }
 
-    private JLabel createResultLabel(Result result) {
+    private JLabel createResultLabel(MatchResult result) {
         JLabel label = new JLabel(result.toString());
         label.setSize(new Dimension(400, 14));
         label.setPreferredSize(new Dimension(400, 14));

@@ -1,8 +1,22 @@
 package org.kristian.sports.util;
 
+/**
+ * A match notifier can be implemented by classes that wants to be notified of when matches are started, updated and ended
+ */
 public interface MatchNotifier {
 
-    void notifyMatchUpdate();
+    /**
+     * A match is started
+     */
+    void matchStarted();
 
-    void notifyMatchEnded();
+    /**
+     * A match is updated
+     */
+    void matchUpdated();
+
+    /**
+     * A match is ended
+     */
+    void matchEnded();
 }

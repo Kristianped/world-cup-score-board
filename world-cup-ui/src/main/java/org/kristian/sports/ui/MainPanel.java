@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.kristian.sports.Main;
-import org.kristian.sports.Match;
-import org.kristian.sports.ScoreBoard;
+import org.kristian.sports.data.match.Match;
+import org.kristian.sports.data.ScoreBoard;
 
 public class MainPanel extends JPanel {
 

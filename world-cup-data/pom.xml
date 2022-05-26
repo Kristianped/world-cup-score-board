@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>world-cup-data</artifactId>
-    <packaging>jar</packaging>
     <name>World Cup Score Board Data</name>
 
     <dependencies>

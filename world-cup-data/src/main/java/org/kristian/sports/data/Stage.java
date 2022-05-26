@@ -1,8 +1,8 @@
-package org.kristian.sports;
+package org.kristian.sports.data;
 
 public enum Stage {
 
-    GROUP("Group"),
+    GROUP("Group stage"),
     ROUND_OF_16("Round of 16"),
     QUARTER_FINALS("Quarter Final"),
     SEMI_FINALS("Semi Final"),
@@ -11,7 +11,7 @@ public enum Stage {
 
     private final String name;
 
-    private Stage(String name) {
+    Stage(String name) {
         this.name = name;
     }
 

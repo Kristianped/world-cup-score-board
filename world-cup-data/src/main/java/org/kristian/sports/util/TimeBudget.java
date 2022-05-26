@@ -2,6 +2,10 @@ package org.kristian.sports.util;
 
 import java.time.Duration;
 
+/**
+ * A budget used when doing a timed task. It consists of how many iterations a task can have, an initial delay before
+ * the task can start and an interval between each iteration of the task
+ */
 public class TimeBudget {
 
     public static class Builder {
@@ -46,22 +50,42 @@ public class TimeBudget {
         this.iterations = 0;
     }
 
+    /**
+     * Get the initial delay
+     * @return Initial delay
+     */
     public long initialDelay() {
         return initialDelay;
     }
 
+    /**
+     * Get the interval
+     * @return The interval
+     */
     public long interval() {
         return interval;
     }
 
+    /**
+     * Get maximum number of iterations
+     * @return Max iterations
+     */
     public int maxIterations() {
         return maxIterations;
     }
 
+    /**
+     * Get amount of iterations currently done
+     * @return Done iterations
+     */
     public int iterations() {
         return iterations;
     }
 
+    /**
+     * Check if a task can continue, and if it can the amount of iterations done is added with 1
+     * @return True if a task can continue, false if not
+     */
     public boolean next() {
         if (canContinue()) {
             iterations++;
@@ -71,6 +95,10 @@ public class TimeBudget {
         return false;
     }
 
+    /**
+     * Check if current amount of iterations done is less than the maximum allowed
+     * @return True if current iterations is less than the max, false if not
+     */
     public boolean canContinue() {
         return iterations < maxIterations;
     }
