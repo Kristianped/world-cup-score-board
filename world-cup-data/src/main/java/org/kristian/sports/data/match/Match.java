@@ -66,9 +66,9 @@ public class Match {
 
         // If a group-game, add score to the group and update statistics to each team
         if (stage == Stage.GROUP) {
-            homeTeam.getGroup().addResult(result);
             result.updateGroupStatistics(homeTeam);
             result.updateGroupStatistics(awayTeam);
+            homeTeam.getGroup().addResult(result);
         }
 
         matchNotifier.matchEnded();

@@ -16,11 +16,11 @@ public class MatchStatistics {
         this.team = team;
     }
 
-    Team getTeam() {
+    public Team getTeam() {
         return team;
     }
 
-    int getGoals() {
+    public int getGoals() {
         return goals;
     }
 

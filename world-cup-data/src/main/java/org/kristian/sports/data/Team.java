@@ -13,7 +13,7 @@ public class Team implements Comparable<Team> {
     private final Group group;
     private final Stage currentStage;
 
-    private final GroupStatistics groupStatistics = new GroupStatistics();
+    private GroupStatistics groupStatistics;
 
     public Team(String name, Group group) {
         this.name = name;
@@ -55,6 +55,9 @@ public class Team implements Comparable<Team> {
      * @param redCards Red cards received in the match
      */
     public void addGroupStatistics(Team opposingTeam, int points, int goalsScored, int goalsConceded, int yellowCards, int redCards) {
+        if (groupStatistics == null)
+            groupStatistics = new GroupStatistics();
+
         groupStatistics.totalPoints += points;
         groupStatistics.totalGoalsScored += goalsScored;
         groupStatistics.totalGoalsConceded += goalsConceded;
@@ -149,32 +152,36 @@ public class Team implements Comparable<Team> {
         //     Yellow card and direct red card: −5 points;
         // 7. Drawing of lots.
 
+        // If no matches played, sort by name
+        if (groupStatistics == null || other.groupStatistics == null)
+            return name.compareTo(other.name);
+
         // 1:
         if (getPoints() > other.getPoints())
-            return 1;
-        else if (getPoints() < other.getPoints())
             return -1;
+        else if (getPoints() < other.getPoints())
+            return 1;
 
         // 2:
         if (getGoalDifference() > other.getGoalDifference())
-            return 1;
-        else if (getGoalDifference() < other.getGoalDifference())
             return -1;
+        else if (getGoalDifference() < other.getGoalDifference())
+            return 1;
 
         // 3:
         if (getGoalsScored() > other.getGoalsScored())
-            return 1;
-        else if (getGoalsScored() < other.getGoalsScored())
             return -1;
+        else if (getGoalsScored() < other.getGoalsScored())
+            return 1;
 
         // 4: If the two teams has not played against each other we jump to 7
         if (groupStatistics.pointsAgainstOtherTeams.containsKey(other)) {
             var points = groupStatistics.pointsAgainstOtherTeams.get(other);
 
             if (points == 3)
-                return 1;
-            else if (points == 0)
                 return -1;
+            else if (points == 0)
+                return 1;
 
             var goalsScored = groupStatistics.goalsScoredAgainstOtherTeams.get(other);
             var goalsConceded = groupStatistics.goalsConcededAgainstOtherTeams.get(other);
@@ -182,17 +189,17 @@ public class Team implements Comparable<Team> {
 
             // 5:
             if (goalDifference > 0)
-                return 1;
-            else if (goalDifference < 0)
                 return -1;
+            else if (goalDifference < 0)
+                return 1;
         }
 
         // 6: We only count yellow red cards and direct red cards, not time yet to implement two yellows to
         // a single player
         if (getFairPlayPoints() > other.getFairPlayPoints())
-            return 1;
-        else if (getFairPlayPoints() < other.getFairPlayPoints())
             return -1;
+        else if (getFairPlayPoints() < other.getFairPlayPoints())
+            return 1;
 
         // 7:
         return ThreadLocalRandom.current().nextBoolean() ? 1 : -1;

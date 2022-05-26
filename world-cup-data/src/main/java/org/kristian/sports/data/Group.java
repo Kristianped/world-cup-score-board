@@ -26,6 +26,7 @@ public class Group {
     /**
      * Create matches between the teams in the group. If the group does not consist of 4 teams, and exception is
      * thrown
+     *
      * @return A {@link List} of matches between the teams in the group
      */
     public List<Match> initializeMatches() {
@@ -44,7 +45,9 @@ public class Group {
     }
 
     /**
-     * Add a team to this group. If the provided team is already in this group, an exception is thrown
+     * Add a team to this group. If the provided team is already in this group or the group is full,
+     * an exception is thrown
+     *
      * @param team The team to add
      * @return This group-object, for chaining
      */
@@ -52,13 +55,28 @@ public class Group {
         if (teams.contains(team))
             throw new IllegalArgumentException(this + " already contains team " + team.toString());
 
+        if (teams.size() == 4)
+            throw new IllegalArgumentException(this + " already contains 4 teams");
+
         this.teams.add(team);
         teams.sort(null);
         return this;
     }
 
     /**
+     * Add a team to this group. If the provided team is already in this group, an exception is thrown
+     *
+     * @param teamName The name of the team
+     * @return This group-object, for chaining
+     */
+    public Group addTeam(String teamName) {
+        Team team = new Team(teamName, this);
+        return this.addTeam(team);
+    }
+
+    /**
      * Add a result of a match to this group
+     *
      * @param result The result to add
      */
     public void addResult(MatchResult result) {
@@ -68,6 +86,7 @@ public class Group {
 
     /**
      * Get all match-results that has been played in this group
+     *
      * @return A {@link List} of results
      */
     public List<MatchResult> getResults() {
@@ -76,6 +95,7 @@ public class Group {
 
     /**
      * Checks if this group is finished or not
+     *
      * @return True if all 6 matches has been played, false if not
      */
     public boolean isFinished() {
@@ -84,6 +104,7 @@ public class Group {
 
     /**
      * Get the 2 teams ready for the knockout stages. If the group has un-played matches, an exception is thrown
+     *
      * @return A {@link List} of the 2 teams ready for knockout stages
      */
     public List<Team> getTeamsForKnockoutStages() {
