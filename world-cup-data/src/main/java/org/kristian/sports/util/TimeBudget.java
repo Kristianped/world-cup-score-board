@@ -52,6 +52,7 @@ public class TimeBudget {
 
     /**
      * Get the initial delay
+     *
      * @return Initial delay
      */
     public long initialDelay() {
@@ -60,6 +61,7 @@ public class TimeBudget {
 
     /**
      * Get the interval
+     *
      * @return The interval
      */
     public long interval() {
@@ -68,6 +70,7 @@ public class TimeBudget {
 
     /**
      * Get maximum number of iterations
+     *
      * @return Max iterations
      */
     public int maxIterations() {
@@ -76,6 +79,7 @@ public class TimeBudget {
 
     /**
      * Get amount of iterations currently done
+     *
      * @return Done iterations
      */
     public int iterations() {
@@ -84,6 +88,7 @@ public class TimeBudget {
 
     /**
      * Check if a task can continue, and if it can the amount of iterations done is added with 1
+     *
      * @return True if a task can continue, false if not
      */
     public boolean next() {
@@ -97,6 +102,7 @@ public class TimeBudget {
 
     /**
      * Check if current amount of iterations done is less than the maximum allowed
+     *
      * @return True if current iterations is less than the max, false if not
      */
     public boolean canContinue() {

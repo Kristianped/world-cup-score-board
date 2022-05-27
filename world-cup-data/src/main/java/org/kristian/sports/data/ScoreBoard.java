@@ -36,6 +36,7 @@ public class ScoreBoard {
 
     /**
      * Get all group matches
+     *
      * @return A {@link List} of all group stage matches
      */
     public List<Match> getGroupMatches() {
@@ -44,6 +45,7 @@ public class ScoreBoard {
 
     /**
      * Get finished group matches
+     *
      * @return A {@link List} of all finished group stage matches
      */
     public List<MatchResult> getFinishedGroupMatches() {
@@ -55,8 +57,9 @@ public class ScoreBoard {
 
     /**
      * Start a match
+     *
      * @param notifier The {@link MatchNotifier} to notify about match updates
-     * @param match The match to start
+     * @param match    The match to start
      */
     public void startMatch(MatchNotifier notifier, Match match) {
         match.startMatch(executorService, notifier);
@@ -64,6 +67,7 @@ public class ScoreBoard {
 
     /**
      * End a match
+     *
      * @param match The match to end
      */
     public void endMatch(Match match) {

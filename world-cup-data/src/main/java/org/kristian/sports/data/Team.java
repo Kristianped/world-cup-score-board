@@ -23,6 +23,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get the name of the team
+     *
      * @return The team-name
      */
     public String getName() {
@@ -31,6 +32,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get the group the team is in
+     *
      * @return The group
      */
     public Group getGroup() {
@@ -39,6 +41,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get the stage the team is currently in
+     *
      * @return The stage
      */
     public Stage getCurrentStage() {
@@ -47,12 +50,13 @@ public class Team implements Comparable<Team> {
 
     /**
      * Add statistics for the team about a match in the group stages
-     * @param opposingTeam The opposing team
-     * @param points The points gathered in the match (3 for win, 1 for draw, 0 for loss)
-     * @param goalsScored Goals scored against opposing team
+     *
+     * @param opposingTeam  The opposing team
+     * @param points        The points gathered in the match (3 for win, 1 for draw, 0 for loss)
+     * @param goalsScored   Goals scored against opposing team
      * @param goalsConceded Goals conceded against opposing team
-     * @param yellowCards Yellow cards received in the match
-     * @param redCards Red cards received in the match
+     * @param yellowCards   Yellow cards received in the match
+     * @param redCards      Red cards received in the match
      */
     public void addGroupStatistics(Team opposingTeam, int points, int goalsScored, int goalsConceded, int yellowCards, int redCards) {
         if (groupStatistics == null)
@@ -70,6 +74,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get points collected in the group stage
+     *
      * @return The points
      */
     public int getPoints() {
@@ -78,6 +83,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get the goal difference in the group stage
+     *
      * @return The goal difference
      */
     public int getGoalDifference() {
@@ -86,6 +92,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get amount of goals scored in the group stage
+     *
      * @return Goals scored
      */
     public int getGoalsScored() {
@@ -94,6 +101,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get amount of goals conceded in the group stage
+     *
      * @return Goals conceded
      */
     public int getGoalsConceded() {
@@ -102,6 +110,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get amount of yellow cards in the group stage
+     *
      * @return Yellow cards
      */
     public int getYellowCards() {
@@ -110,6 +119,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get amount of red cards in the group stage
+     *
      * @return Red cards
      */
     public int getRedCards() {
@@ -118,6 +128,7 @@ public class Team implements Comparable<Team> {
 
     /**
      * Get amount of fair play points in the group stage; -1 for a yellow card, -5 for a red card
+     *
      * @return Fair play points
      */
     public int getFairPlayPoints() {

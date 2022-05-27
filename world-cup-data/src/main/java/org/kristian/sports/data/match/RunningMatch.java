@@ -1,11 +1,8 @@
 package org.kristian.sports.data.match;
 
-import org.kristian.sports.data.Group;
 import org.kristian.sports.data.Stage;
 import org.kristian.sports.data.Team;
-import org.kristian.sports.util.MatchNotifier;
 
-import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicBoolean;
 

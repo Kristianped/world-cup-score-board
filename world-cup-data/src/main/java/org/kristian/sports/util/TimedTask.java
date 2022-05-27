@@ -17,6 +17,7 @@ public class TimedTask {
     /**
      * Run the provided supplier until it returns true, or the budget runs out. When the task is complete, run
      * the consumer
+     *
      * @param supplier The supplier to run
      * @param consumer The consumer to run
      * @return True if the supplier returns true, false if not
